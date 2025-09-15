@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proyecto Peso</title>
+</head>
+<body>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Formulario donde el usuario ingresa su peso y selecciona si es grasa o músculo -->
+  <main>
+    <h1>Detector de Peso</h1>
+    
+    <!-- Entrada para el peso -->
+    <label for="peso">Ingresa tu peso (en libras):</label>
+    <input type="number" id="peso" name="peso" />
+
+    <!-- Selección de tipo de peso: músculo o grasa -->
+    <p>Especifica que peso es:</p>
+    <label>
+      <input type="radio" name="tipo" value="musculo" /> Músculo
+    </label>
+    <label>
+      <input type="radio" name="tipo" value="grasa" /> Grasa
+    </label>
+
+    <!-- Botón para mostrar la imagen -->
+    <button onclick="mostrarImagen()">Procesar</button>
+
+    <!-- Contenedor donde se mostrará la imagen -->
+    <div id="resultado"></div>
+  </main>
+
+  <script>
+    // Función que decide qué imagen mostrar según el peso y el tipo elegido
+    function mostrarImagen(){
+      // Obtener el peso ingresado
+      const peso = parseInt(document.getElementById("peso").value);
+
+      // Obtener el tipo seleccionado (músculo o grasa)
+      const tipo = document.querySelector('input[name="tipo"]:checked');
+
+      // Contenedor donde se insertará la imagen
+      const resultado = document.getElementById("resultado");
+
+      // Limpiar resultados anteriores
+      resultado.innerHTML = "";
+
+      // Validación: si no ingresó peso o no seleccionó tipo
+      if(!peso || !tipo){
+        resultado.innerHTML = "<p>Por favor ingresa tu peso y selecciona el tipo.</p>";
+        return;
+      }
+
+      // Crear elemento de imagen
+      const img = document.createElement("img");
+
+      /*
+        Aquí colocas tus enlaces de imágenes según el tipo y el rango de peso.
+        Nota: usamos 200 libras como el límite para grasa y músculo.
+      */
+
+      if(tipo.value === "grasa"){
+        if(peso <= 100){
+          // Imagen si es grasa y está en o debajo de 200 libras
+          img.src = "https://http2.mlstatic.com/D_Q_NP_2X_990222-MLM78892925263_092024-V.webp";
+        } else {
+          // Imagen si es grasa y se pasa de 200 libras
+          img.src = "https://http2.mlstatic.com/D_Q_NP_2X_990222-MLM78892925263_092024-V.webp";
+        }
+      } else if(tipo.value === "musculo"){
+        if(peso <= 100){
+          // Imagen si es músculo y está en o debajo de 200 libras
+          img.src = "https://thebarbell.com/wp-content/uploads/2021/06/Mike-Mentzer-story.jpg";
+        } else {
+          // Imagen si es músculo y se pasa de 200 libras
+          img.src = "https://thebarbell.com/wp-content/uploads/2021/06/Mike-Mentzer-story.jpg";
+        }
+      }
+
+      // Agregar la imagen al contenedor resultado
+      resultado.appendChild(img);
+    }
+  </script>
+</body>
+</html>

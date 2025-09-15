@@ -1,0 +1,136 @@
+/* =============================
+   Estilos para Proyecto Peso
+   Inspirado en la estética limpia de Apple
+   ============================= */
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(180deg, #f5f7fa, #e4e7eb);
+  color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInUp 0.6s ease;
+}
+
+/* Título */
+.title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1c1c1e;
+}
+
+/* Labels */
+.label {
+  font-size: 1rem;
+  color: #333;
+  display: block;
+  margin: 15px 0 5px;
+  text-align: left;
+}
+
+/* Input de peso */
+.input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+.input:focus {
+  border-color: #007aff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2);
+}
+
+/* Radio buttons */
+.radio-group {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0 20px;
+}
+.radio {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Botón principal */
+.btn {
+  background: #007aff;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.btn:hover {
+  background: #005bb5;
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Resultado */
+.resultado {
+  margin-top: 20px;
+}
+.resultado img {
+  max-width: 100%;
+  border-radius: 16px;
+  margin-top: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Mensaje de error */
+.error {
+  color: #ff3b30;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
